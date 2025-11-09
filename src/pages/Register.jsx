@@ -1,26 +1,29 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
 import Navbar from '../components/Navbar';
 import { AuthContext } from '../Context/AuthContext';
+import { MdRemoveRedEye } from 'react-icons/md';
+import { IoMdEyeOff } from 'react-icons/io';
 
 const Register = () => {
-    const {createUser, setUser} = use(AuthContext)
-   const registerAccount=(e)=>{
+    const [show, setShow] = useState(false);
+    const { createUser, setUser } = use(AuthContext)
+    const registerAccount = (e) => {
         e.preventDefault()
-        const photo= e.target.photo.value;
-        const name= e.target.name.value;
-        const email= e.target.email.value;
-        const password= e.target.password.value;
-        console.log("connect",name, photo, email,password);
+        const photo = e.target.photo.value;
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log("connect", name, photo, email, password);
         createUser(email, password)
-        .then(result=>{
-            const user= result.user
-            console.log(user);
-            setUser(user)
-        }).catch(err=>{
-            alert(err)
-        })
+            .then(result => {
+                const user = result.user
+                console.log(user);
+                setUser(user)
+            }).catch(err => {
+                alert(err)
+            })
 
     }
 
@@ -29,7 +32,7 @@ const Register = () => {
             <Navbar />
             <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 flex
              items-center justify-center px-4 py-12">
-          
+
                 <div className="w-full max-w-md">
                     {/* Glassmorphic Card */}
                     <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/40 p-8">
@@ -85,17 +88,22 @@ const Register = () => {
                             </div>
 
                             {/* Password */}
-                            <div>
+                            <div className="relative">
                                 <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
                                 <input
-                                    type="password"
+                                    type={show ? "text" : "password"}
                                     name="password"
                                     required
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-300
-                                     focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100
-                                      transition-all duration-200 outline-none bg-white/70"
+                                    className="w-full px-4 py-3 pr-12 rounded-xl border border-gray-300 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all duration-200 outline-none bg-white/70"
                                     placeholder="••••••••"
                                 />
+                                <button
+                                    type="button"
+                                    onClick={() => setShow(!show)}
+                                    className="absolute right-3 top-10 text-gray-500 hover:text-purple-600 transition-colors"
+                                >
+                                    {show ? <MdRemoveRedEye size={22} /> : <IoMdEyeOff size={22} />}
+                                </button>
                             </div>
 
                             {/* Register Button */}

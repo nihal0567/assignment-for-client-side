@@ -1,15 +1,29 @@
-import React, {  useState } from 'react';
+import React, {  use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link,   } from 'react-router';
 import Navbar from '../components/Navbar';
 
 import { MdRemoveRedEye } from 'react-icons/md';
 import { IoMdEyeOff } from 'react-icons/io';
+import { AuthContext } from '../Context/AuthContext';
 
 const Login = () => {
+    const {signInUser} = use(AuthContext)
     const [show, setShow] = useState(false);
 
-   
+   const loginUser=(e)=>{
+        e.preventDefault()
+        const form= e.target 
+        const email = form.email.value 
+        const password = form.password.value 
+
+        signInUser(email, password).then((result)=>{
+            const user = result.user
+            console.log(user);
+        }).catch(err=>{
+            alert(err)
+        })
+   }
    
 
     return (
@@ -27,7 +41,7 @@ const Login = () => {
                             <p className="text-gray-600 mt-2">Login to your account</p>
                         </div>
 
-                        <form  className="space-y-5">
+                        <form onSubmit={loginUser} className="space-y-5">
                             {/* Email Field */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>

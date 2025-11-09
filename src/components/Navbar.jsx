@@ -46,7 +46,7 @@ const Navbar = () => {
                     <div className='flex '>
                             <button onClick={handleLogout} className="btn rounded-full bg-blue-200 text-white
                              hover:bg-blue-500">Log Out</button>
-                            <img className='text-xs w-10 mr-3' src="https://i.ibb.co.com/wh2H62mw/219969.png" alt="" />
+                            <img className='text-xs w-10 ml-3' src="https://i.ibb.co.com/wh2H62mw/219969.png" alt="" />
                         </div>
                         :
                         <NavLink to="login" className="btn rounded-full bg-blue-300 text-white
