@@ -4,7 +4,10 @@ import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import About from "../pages/About";
+import AddTransactions from "../pages/AddTransactions";
+import MyTransactions from "../pages/MyTransactions";
+import ReportPage from "../pages/ReportPage";
+import Profile from "../pages/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -16,10 +19,22 @@ export const router = createBrowserRouter([
                 Component: Home
             },
             {
-                path: '/about',
-                Component: About
+                path: '/add-transaction',
+                element: <AddTransactions />
+            },
+            {
+                path: '/my-transaction',
+                element: <MyTransactions />
+            },
+            {
+                path: '/reports',
+                element: <ReportPage />
             }
         ]
+    },
+    {
+        path: '/profile',
+        element: <Profile /> 
     },
     {
         path: '/register',

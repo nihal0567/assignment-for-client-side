@@ -25,6 +25,7 @@ const Register = () => {
                 const user = result.user
                 console.log(user);
                 setUser(user)
+                toast("Successful Registration and Login Website")
             }).catch(err => {
                 alert(err)
             })
