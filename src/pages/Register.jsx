@@ -5,9 +5,13 @@ import Navbar from '../components/Navbar';
 import { AuthContext } from '../Context/AuthContext';
 import { MdRemoveRedEye } from 'react-icons/md';
 import { IoMdEyeOff } from 'react-icons/io';
+import { toast } from 'react-toastify';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth } from '../components/Firebase/firebase.config';
 
 const Register = () => {
     const [show, setShow] = useState(false);
+    const provider= new GoogleAuthProvider()
     const { createUser, setUser } = use(AuthContext)
     const registerAccount = (e) => {
         e.preventDefault()
@@ -24,7 +28,16 @@ const Register = () => {
             }).catch(err => {
                 alert(err)
             })
+    }
 
+    const googleRegister=()=>{
+        signInWithPopup(auth, provider)
+        .then((result)=>{
+            console.log(result);
+            toast("Login Successful")
+        }).catch(err=>{
+            toast.warning(err)
+        })
     }
 
     return (
@@ -125,6 +138,7 @@ const Register = () => {
 
                             {/* Google Button */}
                             <button
+                                onClick={googleRegister}
                                 type="button"
                                 className="w-full py-3.5 rounded-xl border border-gray-300 flex items-center 
                                 justify-center gap-3 hover:border-indigo-400 hover:bg-indigo-50 transition-all 

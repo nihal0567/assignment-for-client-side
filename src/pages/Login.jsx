@@ -1,15 +1,19 @@
 import React, {  use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link,   } from 'react-router';
+import { Link  } from 'react-router';
 import Navbar from '../components/Navbar';
 
 import { MdRemoveRedEye } from 'react-icons/md';
 import { IoMdEyeOff } from 'react-icons/io';
 import { AuthContext } from '../Context/AuthContext';
+import { toast } from 'react-toastify';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth } from '../components/Firebase/firebase.config';
 
 const Login = () => {
     const {signInUser} = use(AuthContext)
     const [show, setShow] = useState(false);
+    const provider= new GoogleAuthProvider()
 
    const loginUser=(e)=>{
         e.preventDefault()
@@ -20,10 +24,21 @@ const Login = () => {
         signInUser(email, password).then((result)=>{
             const user = result.user
             console.log(user);
+            toast.success("Login Successful")
         }).catch(err=>{
             alert(err)
         })
    }
+
+   const googleLogin=()=>{
+           signInWithPopup(auth, provider)
+           .then((result)=>{
+               console.log(result.user);
+               toast("Login Successful")
+           }).catch(err=>{
+               toast.warning(err)
+           })
+       }
    
 
     return (
@@ -103,6 +118,7 @@ const Login = () => {
 
                             {/* Google Button */}
                             <button
+                                onClick={googleLogin}
                                 type="button"
                                 className="w-full py-3.5 cursor-pointer rounded-xl border border-gray-300 flex items-center justify-center gap-3 hover:border-purple-400 hover:bg-purple-50 transition-all duration-200 group"
                             >
