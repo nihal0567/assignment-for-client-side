@@ -35,6 +35,7 @@ const Register = () => {
         signInWithPopup(auth, provider)
         .then((result)=>{
             console.log(result);
+
             toast("Login Successful")
         }).catch(err=>{
             toast.warning(err)

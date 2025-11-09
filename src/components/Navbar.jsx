@@ -43,7 +43,7 @@ const Navbar = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content bg-white/90 backdrop-blur-md rounded-box z-50 mt-3 w-56 p-4 shadow-xl border border-gray-200">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content bg-white/90 backdrop-blur-md rounded-box z-50 mt-3 w-56 p-1 shadow-xl border border-gray-200">
                         {navLinks}
                     </ul>
                 </div>
@@ -60,6 +60,7 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
             </div>
+
 
             {/* Right - User Auth */}
             <div className="navbar-end gap-3">

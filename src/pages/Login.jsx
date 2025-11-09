@@ -1,6 +1,6 @@
 import React, {  use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link  } from 'react-router';
+import { Link, useNavigate  } from 'react-router';
 import Navbar from '../components/Navbar';
 
 import { MdRemoveRedEye } from 'react-icons/md';
@@ -11,6 +11,7 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../components/Firebase/firebase.config';
 
 const Login = () => {
+    const navigate = useNavigate()
     const {signInUser} = use(AuthContext)
     const [show, setShow] = useState(false);
     const provider= new GoogleAuthProvider()
@@ -24,6 +25,7 @@ const Login = () => {
         signInUser(email, password).then((result)=>{
             const user = result.user
             console.log(user);
+            navigate("/")
             toast.success("Login Successful")
         }).catch(err=>{
             alert(err)
@@ -35,6 +37,7 @@ const Login = () => {
            .then((result)=>{
                console.log(result.user);
                toast("Login Successful")
+               navigate("/")
            }).catch(err=>{
                toast.warning(err)
            })
