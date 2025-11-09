@@ -1,67 +1,16 @@
-import React, {  useRef,  useState } from 'react';
+import React, {  useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link,  useNavigate } from 'react-router';
+import { Link,   } from 'react-router';
 import Navbar from '../components/Navbar';
-import { toast } from 'react-toastify';
-import { GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from 'firebase/auth';
 
 import { MdRemoveRedEye } from 'react-icons/md';
 import { IoMdEyeOff } from 'react-icons/io';
-import { auth } from '../components/firebase/firebase.config';
-import { use } from 'react';
-import { AuthContext } from '../Context/AuthContext';
-
-const googleProvider = new GoogleAuthProvider();
 
 const Login = () => {
-    const { signIn, setUser, email, setEmail } = use(AuthContext);
     const [show, setShow] = useState(false);
-    const navigate = useNavigate();
-    const emailRef = useRef()
-    
-    const forgotPassword=(e)=>{
-        e.preventDefault()
-        const email = emailRef.current.value
-        setEmail(email)
-        sendPasswordResetEmail(auth, email)
-        .then(()=>{
-           
-        })
-        .catch()
-        navigate("/forgot-password")
-    }
 
-
-    const googleSignIn = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user);
-                toast.success("Sign in successful");
-                navigate("/");
-            })
-            .catch(error => {
-                console.log(error);
-                toast.error("Login failed");
-            });
-    };
-
-    const handleLogin = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-
-        signIn(email, password)
-            .then(result => {
-                console.log(result);
-                toast.success("Log in Successful");
-                
-                navigate("/");
-            })
-            .catch((error) => {
-                toast.error(error.message || "Login failed");
-            });
-    };
+   
+   
 
     return (
         <div>
@@ -78,16 +27,13 @@ const Login = () => {
                             <p className="text-gray-600 mt-2">Login to your account</p>
                         </div>
 
-                        <form onSubmit={handleLogin} className="space-y-5">
+                        <form  className="space-y-5">
                             {/* Email Field */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
                                 <input
                                     type="email"
                                     name="email"
-                                    ref={emailRef}
-                                    value={email}
-                                    onChange={(e)=>setEmail(e.target.value)}
                                     required
                                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all duration-200 outline-none bg-white/70"
                                     placeholder="you@example.com"
@@ -115,7 +61,7 @@ const Login = () => {
 
                             {/* Links */}
                             <div  className="flex justify-between items-center text-sm">
-                                <button onClick={forgotPassword} type='submit' className="text-purple-600 cursor-pointer hover:text-purple-800 font-medium transition-colors">
+                                <button type='submit' className="text-purple-600 cursor-pointer hover:text-purple-800 font-medium transition-colors">
                                     Forgot password?
                                 </button>
                                 <Link
@@ -144,7 +90,6 @@ const Login = () => {
                             {/* Google Button */}
                             <button
                                 type="button"
-                                onClick={googleSignIn}
                                 className="w-full py-3.5 cursor-pointer rounded-xl border border-gray-300 flex items-center justify-center gap-3 hover:border-purple-400 hover:bg-purple-50 transition-all duration-200 group"
                             >
                                 <FcGoogle size={24} />

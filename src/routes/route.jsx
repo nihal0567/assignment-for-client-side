@@ -3,6 +3,8 @@ import MainLayout from "../Layouts/MainLayout";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
+import About from "../pages/About";
 
 export const router = createBrowserRouter([
     {
@@ -12,8 +14,16 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home
+            },
+            {
+                path: '/about',
+                Component: About
             }
         ]
+    },
+    {
+        path: '/register',
+        Component: Register
     },
     {
         path: '/login',
