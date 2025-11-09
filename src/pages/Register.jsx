@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { use } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
 import Navbar from '../components/Navbar';
+import { AuthContext } from '../Context/AuthContext';
 
 const Register = () => {
+    const {createUser, setUser} = use(AuthContext)
+   const registerAccount=(e)=>{
+        e.preventDefault()
+        const photo= e.target.photo.value;
+        const name= e.target.name.value;
+        const email= e.target.email.value;
+        const password= e.target.password.value;
+        console.log("connect",name, photo, email,password);
+        createUser(email, password)
+        .then(result=>{
+            const user= result.user
+            console.log(user);
+            setUser(user)
+        }).catch(err=>{
+            alert(err)
+        })
+
+    }
+
     return (
         <div>
             <Navbar />
@@ -21,7 +41,7 @@ const Register = () => {
                             <p className="text-gray-600 mt-2">Join us today!</p>
                         </div>
 
-                        <form  className="space-y-5">
+                        <form onSubmit={registerAccount} className="space-y-5">
                             {/* Photo URL */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">Photo URL</label>
