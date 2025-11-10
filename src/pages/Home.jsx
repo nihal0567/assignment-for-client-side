@@ -1,5 +1,7 @@
 import { NavLink } from "react-router";
 import OnHover from "../components/OnHover";
+import OverviewSection from "../components/OverviewSection";
+import StaticSections from "../components/StaticSections";
 
 
 const Home = () => {
@@ -30,7 +32,7 @@ const Home = () => {
                             <span className="text-orange-400">Finances Smarter</span>
                         </h1>
                         <p className="mt-8 text-lg text-gray-200 max-w-xl">
-                            FinEase helps you track income, expenses, and savings goals — all in one simple, intuitive dashboard.
+                            FinEase simplifies your money life. Track income, control expenses, and hit your savings goals without stress. Take charge today and watch your financial freedom grow—one easy step at a time.
                         </p>
                         <div className="mt-12 flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
                             <button className="btn btn-lg btn-neutral text-white shadow-2xl hover:shadow-orange-500/50">
@@ -67,6 +69,8 @@ const Home = () => {
             </div>
         </div>
         <OnHover />
+        <OverviewSection />
+        <StaticSections />
         </div>
     );
 };
