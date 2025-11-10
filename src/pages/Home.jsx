@@ -1,4 +1,5 @@
 import { NavLink } from "react-router";
+import OnHover from "../components/OnHover";
 
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
 
 
     return (
+        <div>
         <div className="relative min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 overflow-hidden">
             {/* Background Shapes */}
             <div className="absolute inset-0 pointer-events-none">
@@ -63,6 +65,8 @@ const Home = () => {
                     />
                 </svg>
             </div>
+        </div>
+        <OnHover />
         </div>
     );
 };
