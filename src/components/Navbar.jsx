@@ -8,6 +8,7 @@ import { FaMoneyBillWave, FaThemeisle, FaUser } from 'react-icons/fa';
 import { GoHomeFill } from 'react-icons/go';
 import { ImBoxAdd } from 'react-icons/im';
 import { format } from 'date-fns';
+import { GrTransaction } from 'react-icons/gr';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -27,6 +28,7 @@ const Navbar = () => {
     const navLinks = (
         <>
             <li><NavLink to="/"><GoHomeFill /> Home</NavLink></li>
+            <li><NavLink to="/all-transaction"><GrTransaction /> All Transaction</NavLink></li>
             <li><NavLink to="/add-transaction"><ImBoxAdd /> Add Transaction</NavLink></li>
             <li><NavLink to="/my-transaction"><FaMoneyBillWave /> My Transactions</NavLink></li>
             <li><NavLink to="/reports"><HiOutlineDownload /> Reports</NavLink></li>

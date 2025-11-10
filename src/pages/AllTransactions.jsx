@@ -1,14 +1,14 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
 
-const MyTransactions = () => {
+const AllTransactions = () => {
     const data = useLoaderData()
     console.log(data);
     return (
         <div>
-            My Transactions
+            All Transactions
         </div>
     );
 };
 
-export default MyTransactions;
+export default AllTransactions;

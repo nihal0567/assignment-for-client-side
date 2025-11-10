@@ -9,6 +9,8 @@ import MyTransactions from "../pages/MyTransactions";
 import ReportPage from "../pages/ReportPage";
 import Profile from "../pages/Profile";
 import PrivateRoute from "../Context/PrivateRoute";
+import Loading from "../components/Loading";
+import AllTransactions from "../pages/AllTransactions";
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +28,12 @@ export const router = createBrowserRouter([
             {
                 path: '/my-transaction',
                 element: <PrivateRoute><MyTransactions /></PrivateRoute>
+            },
+            {
+                path: '/all-transaction',
+                element: <AllTransactions />,
+                loader: ()=> fetch('http://localhost:3000/collections'),
+                hydrateFallbackElement: <Loading />
             },
             {
                 path: '/reports',
