@@ -29,6 +29,7 @@ const Navbar = () => {
             <li><NavLink to="/add-transaction"><ImBoxAdd /> Add Transaction</NavLink></li>
             <li><NavLink to="/my-transaction"><FaMoneyBillWave /> My Transactions</NavLink></li>
             <li><NavLink to="/reports"><HiOutlineDownload /> Reports</NavLink></li>
+            
         </>
     );
 
@@ -52,11 +53,12 @@ const Navbar = () => {
                 <NavLink to="/" className="flex items-center gap-2 text-2xl font-bold bg-gradient-to-r from-orange-500 to-pink-600 bg-clip-text text-transparent">
                     FinEase
                 </NavLink>
+                
             </div>
 
             {/* Center - Desktop Menu */}
             <div className="navbar-center hidden md:flex">
-                <ul className="menu menu-horizontal px-1 gap-10 text-base font-medium">
+                <ul className="menu menu-horizontal px-1 gap-5 text-base font-medium">
                     {navLinks}
                 </ul>
             </div>

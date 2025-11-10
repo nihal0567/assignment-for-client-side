@@ -1,6 +1,6 @@
 import React, { use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import Navbar from '../components/Navbar';
 import { AuthContext } from '../Context/AuthContext';
 import { MdRemoveRedEye } from 'react-icons/md';
@@ -12,6 +12,7 @@ import { auth } from '../components/Firebase/firebase.config';
 const Register = () => {
     const [show, setShow] = useState(false);
     const provider= new GoogleAuthProvider()
+    const navigate = useNavigate()
     const { createUser, setUser } = use(AuthContext)
     const registerAccount = (e) => {
         e.preventDefault()
@@ -20,11 +21,16 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log("connect", name, photo, email, password);
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+        if (!passwordRegex.test(password)) {
+            toast.error("Password must have uppercase, lowercase & min 6 characters");
+            return
+        }
         createUser(email, password)
             .then(result => {
                 const user = result.user
-                console.log(user);
                 setUser(user)
+                navigate("/")
                 toast("Successful Registration and Login Website")
             }).catch(err => {
                 alert(err)
@@ -35,7 +41,7 @@ const Register = () => {
         signInWithPopup(auth, provider)
         .then((result)=>{
             console.log(result);
-
+            navigate("/")
             toast("Login Successful")
         }).catch(err=>{
             toast.warning(err)
