@@ -1,12 +1,12 @@
 
 import { Link, useLoaderData } from "react-router";
-import Swal from "sweetalert2";
+
 
 const TransactionDetailPage = () => {
     const data = useLoaderData()
     const transaction = data.result;
 
-    const { amount, category, date, description, email, name, situation, _id } = transaction
+    const { amount, category, date, description, email, name, situation } = transaction
     // console.log(transaction);
 
 

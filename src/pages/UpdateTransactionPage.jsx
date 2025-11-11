@@ -11,7 +11,7 @@ const UpdateTransactionPage = () => {
   const { user } = use(AuthContext)
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
-  //   const [existingValue, setExistingValue] = useState("")
+ 
 
 
   useEffect(() => {
@@ -21,6 +21,7 @@ const UpdateTransactionPage = () => {
     }
   }, [user])
 
+  
   const updateTransaction = (e) => {
     e.preventDefault()
 
@@ -29,7 +30,7 @@ const UpdateTransactionPage = () => {
       category: e.target.category.value,
       amount: e.target.amount.value,
       description: e.target.description.value,
-      date: new Date(),
+      date: new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }),
       email: e.target.email.value,
       name: e.target.name.value
     }
@@ -160,7 +161,7 @@ const UpdateTransactionPage = () => {
                 />
               </div>
 
-              
+             <div>{new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' })}</div>
 
 
               {/* User Info - Read Only */}

@@ -15,6 +15,7 @@ const AddTransactions = () => {
       }
     }, [user])
 
+    const now = new Date()
     
     const addTransaction=(e)=>{
         e.preventDefault()
@@ -24,7 +25,7 @@ const AddTransactions = () => {
          category : e.target.category.value,
          amount : e.target.amount.value ,
          description : e.target.description.value ,
-         date: new Date() ,
+         date: new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Dhaka' })) ,
          email : e.target.email.value ,
          name : e.target.name.value }
         console.log({formData});
@@ -51,6 +52,7 @@ const AddTransactions = () => {
 
     return (
         <div className="my-10 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 flex items-center justify-center p-4">
+       
         <div className="w-full max-w-2xl">
           {/* Card */}
           <div className="card bg-base-100 shadow-2xl rounded-3xl overflow-hidden">
