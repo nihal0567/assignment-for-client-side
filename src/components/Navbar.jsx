@@ -38,23 +38,27 @@ const Navbar = () => {
 
     return (
         <div className='bg-gradient-to-r to-indigo-900'>
-            <div className="navbar py-0 min-h-0 z-50 shadow-lg rounded-full glass-card max-w-7xl mx-auto pt-4 border border-white/20 backdrop-blur-md">
+            <div className="navbar py-0 min-h-0 z-50 shadow-lg rounded-full glass-card max-w-7xl mx-auto pt-4 border
+             border-white/20 backdrop-blur-md">
                 {/* Left - Logo + Mobile Menu */}
                 <div className="navbar-start">
                     {/* Mobile Hamburger */}
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content bg-white/90 backdrop-blur-md rounded-box z-50 mt-3 w-56 p-1 shadow-xl border border-gray-200">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content bg-white/90 backdrop-blur-md 
+                        rounded-box z-50 mt-3 w-56 p-1 shadow-xl border border-gray-200">
                             {navLinks}
                         </ul>
                     </div>
 
                     {/* Logo */}
-                    <NavLink to="/" className="flex items-center gap-2 text-2xl text-gray-800  font-bold bg-gradient-to-r from-orange-500 to-pink-600 bg-clip-text text-transparent">
+                    <NavLink to="/" className="flex items-center gap-2 text-2xl text-gray-800  font-bold 
+                    bg-gradient-to-r from-orange-500 to-pink-600 bg-clip-text text-transparent">
                         FinEase
                     </NavLink>
 
@@ -70,6 +74,9 @@ const Navbar = () => {
 
                 {/* Right - User Auth */}
                 <div className="navbar-end gap-3">
+                    <div>
+                        
+                    </div>
                     {user ? (
                         <div className="dropdown dropdown-end z-50">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -115,7 +122,8 @@ const Navbar = () => {
                                 <li className="mt-4">
                                     <button
                                         onClick={handleLogout}
-                                        className="btn btn-sm w-full bg-gradient-to-r from-pink-500 to-red-500 text-white border-none hover:from-pink-600 hover:to-red-600 shadow-md"
+                                        className="btn btn-sm w-full bg-gradient-to-r from-pink-500 to-red-500
+                                         text-white border-none hover:from-pink-600 hover:to-red-600 shadow-md"
                                     >
                                         <IoLogOut /> Logout
                                     </button>
@@ -123,12 +131,18 @@ const Navbar = () => {
                             </ul>
                         </div>
                     ) : (
+                        <div className='flex items-center '>
+                        <Link to="/register" className='btn btn-sm rounded-t-4xl bg-gradient-to-r from-pink-500 to-red-500 text-white border-none hover:from-pink-600 hover:to-red-600 shadow-md'>
+                        <IoLogIn className="text-lg" transform=''/> Sign Up
+                        </Link>
                         <Link
+
                             to="/login"
                             className="btn btn-sm rounded-b-4xl bg-gradient-to-r from-pink-500 to-red-500 text-white border-none hover:from-pink-600 hover:to-red-600 shadow-md"
                         >
-                            <IoLogIn className="text-lg" /> Login
+                            <IoLogIn className="text-lg rotate-180" /> Login
                         </Link>
+                        </div>
                     )}
                 </div>
             </div>
