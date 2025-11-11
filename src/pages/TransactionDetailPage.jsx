@@ -5,8 +5,8 @@ const TransactionDetailPage = () => {
     const data = useLoaderData()
     const transaction = data.result;
 
-    const { amount, category, date, description, email, name, type, _id } = transaction
-    
+    const { amount, category, date, description, email, name, situation, _id } = transaction
+    console.log(transaction);
 
 
     return (
@@ -41,7 +41,7 @@ const TransactionDetailPage = () => {
                                         <div className="flex justify-between items-start">
                                             <div>
                                                 <div className="w-14 h-10 bg-yellow-400 rounded-lg shadow-lg mb-6"></div>
-                                                <p className="text-3xl font-bold tracking-wider">{type}</p>
+                                                <p className="text-3xl text-white font-bold tracking-wider">{situation}</p>
                                                 <p className="text-sm opacity-80 mt-2">{amount}</p>
                                             </div>
                                             <div className="text-right">

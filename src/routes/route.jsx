@@ -28,12 +28,8 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><AddTransactions /></PrivateRoute>
             },
             {
-                path: '/my-transaction',
-                element: <PrivateRoute><MyTransactions /></PrivateRoute>
-            },
-            {
                 path: '/all-transaction',
-                element: <AllTransactions />,
+                element: <PrivateRoute><AllTransactions /></PrivateRoute>,
                 loader: ()=> fetch('http://localhost:3000/collections'),
                 hydrateFallbackElement: <Loading />
             },

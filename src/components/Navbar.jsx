@@ -28,9 +28,9 @@ const Navbar = () => {
     const navLinks = (
         <>
             <li><NavLink to="/"><GoHomeFill /> Home</NavLink></li>
-            <li><NavLink to="/all-transaction"><GrTransaction /> All Transaction</NavLink></li>
+            <li><NavLink to="/all-transaction"><GrTransaction /> My Transaction</NavLink></li>
             <li><NavLink to="/add-transaction"><ImBoxAdd /> Add Transaction</NavLink></li>
-            <li><NavLink to="/my-transaction"><FaMoneyBillWave /> My Transactions</NavLink></li>
+            
             <li><NavLink to="/reports"><HiOutlineDownload /> Reports</NavLink></li>
 
         </>

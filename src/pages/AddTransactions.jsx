@@ -112,7 +112,7 @@ const AddTransactions = () => {
                     <option value="Transport">Transport</option>
                     <option value="Shopping">Shopping</option>
                     <option value="Entertainment">Entertainment</option>
-                    <option value="Bills & Utilities">Bills & Utilities</option>
+                    <option value="Bills & Utilities">Bills </option>
                     <option value="Healthcare">Healthcare</option>
                     <option value="Education">Education</option>
                     <option value="Other">Other</option>

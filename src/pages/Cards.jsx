@@ -2,17 +2,18 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Cards = ({card}) => {
-    const { amount,category,date,description,email,name,type,_id} = card
+    const { amount,category,date,description,email,name,situation,_id} = card
     return (
         <div className="relative group w-full max-w-sm mx-auto">
             {/* Glowing Border + Hover Effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl
+             blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
 
             <div className="relative card bg-base-100 shadow-2xl border border-base-300 rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-cyan-500/50">
                 {/* Badge */}
               
-                    <div className="absolute top-4 right-4 z-10">
-                        <div className="badge badge-lg badge-primary font-bold animate-pulse">{type}</div>
+                    <div className="absolute top-4 right-4  z-10">
+                        <div className="badge badge-lg py-5 badge-primary font-bold animate-pulse">{situation}</div>
                     </div>
 
                 <figure className="p-6 bg-gradient-to-br from-cyan-900/20 to-purple-900/20">
