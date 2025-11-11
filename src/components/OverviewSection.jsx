@@ -1,6 +1,8 @@
 const OverviewSection = ({ totalBalance, totalIncome, totalExpenses }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 px-2.5  py-20 bg-sky-100 rounded-t-full rounded-b-full">
+    <div className="px-2.5  py-20 bg-sky-100 rounded-t-full rounded-b-full">
+      <div className="text-4xl text-center font-bold text-[#9644d278]">Overview Section</div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 px-2.5  py-20 bg-sky-100  ">
       {/* Total Balance */}
       <div className="card bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-xl hover:shadow-2xl transition-shadow">
         <div className="card-body text-center">
@@ -33,6 +35,7 @@ const OverviewSection = ({ totalBalance, totalIncome, totalExpenses }) => {
           <p className="text-sm opacity-80 mt-1">এই মাসে খরচ হয়েছে</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

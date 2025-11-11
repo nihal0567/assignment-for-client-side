@@ -79,7 +79,7 @@ const AddTransactions = () => {
                     <label className="flex items-center justify-center p-6 bg-green-50 border-2 border-green-200 
                     rounded-2xl cursor-pointer hover:bg-green-100 transition-all has-[:checked]:bg-green-500
                      has-[:checked]:border-green-600 has-[:checked]:text-white">
-                      <input type="radio" name="situation" value="Income" className="hidden" />
+                      <input type="radio" name="situation" value="Income" required className="hidden" />
                       <div className="text-center">
                         <div className="text-4xl mb-2">Down Arrow</div>
                         <span  className="block font-medium text-lg">Income</span>
@@ -87,7 +87,7 @@ const AddTransactions = () => {
                     </label>
 
                     <label className="flex items-center justify-center p-6 bg-red-50 border-2 border-red-200 rounded-2xl cursor-pointer hover:bg-red-100 transition-all has-[:checked]:bg-red-500 has-[:checked]:border-red-600 has-[:checked]:text-white">
-                      <input type="radio" name="situation" value="Expense" className="hidden" />
+                      <input type="radio" name="situation" required value="Expense" className="hidden" />
                       <div className="text-center">
                         <div className="text-4xl mb-2">Up Arrow</div>
                         <span className="block font-medium text-lg">Expense</span>
@@ -103,8 +103,8 @@ const AddTransactions = () => {
                       <i className="fas fa-list-ul mr-2"></i> Category
                     </span>
                   </label>
-                  <select name='category' className="select select-bordered w-full rounded-2xl h-14 text-base font-medium focus:border-indigo-500 focus:outline-none ">
-                    <option disabled value="">Select a category</option>
+                  <select name='category' required className="select select-bordered w-full rounded-2xl h-14 text-base font-medium focus:border-indigo-500 focus:outline-none ">
+                    
                     <option value="salary">Salary</option>
                     <option value="Freelance">Freelance</option>
                     <option value="Investment">Investment</option>
@@ -126,7 +126,8 @@ const AddTransactions = () => {
                       <i className="fas fa-dollar-sign mr-2"></i> Amount
                     </span>
                   </label>
-                  <input
+                  <input 
+                    required
                     type="number"
                     placeholder="00"
                     name='amount'
@@ -143,7 +144,7 @@ const AddTransactions = () => {
                       <i className="fas fa-pen mr-2"></i> Description (Optional)
                     </span>
                   </label>
-                  <textarea
+                  <textarea required
                     placeholder="Add a note..."
                     name='description'
                     rows={3}

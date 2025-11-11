@@ -2,7 +2,7 @@ import React from 'react';
 
 const StaticSections = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-gray-300 px-5 py-12 ">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-gray-300 px-5 py-20 ">
       {/* Budgeting Tips */}
       <div className="card bg-base-100 shadow-lg border border-base-300">
         <div className="card-body">

@@ -28,7 +28,7 @@ const Navbar = () => {
     const navLinks = (
         <>
             <li><NavLink to="/"><GoHomeFill /> Home</NavLink></li>
-            <li><NavLink to="/all-transaction"><GrTransaction /> My Transaction</NavLink></li>
+            <li><NavLink to="/my-transaction"><GrTransaction /> My Transaction</NavLink></li>
             <li><NavLink to="/add-transaction"><ImBoxAdd /> Add Transaction</NavLink></li>
             
             <li><NavLink to="/reports"><HiOutlineDownload /> Reports</NavLink></li>
@@ -125,7 +125,7 @@ const Navbar = () => {
                     ) : (
                         <Link
                             to="/login"
-                            className="btn btn-sm rounded-full bg-gradient-to-r from-orange-500 to-pink-600 text-white border-none hover:from-orange-600 hover:to-pink-700 shadow-lg transform hover:scale-105 transition"
+                            className="btn btn-sm rounded-b-4xl bg-gradient-to-r from-pink-500 to-red-500 text-white border-none hover:from-pink-600 hover:to-red-600 shadow-md"
                         >
                             <IoLogIn className="text-lg" /> Login
                         </Link>

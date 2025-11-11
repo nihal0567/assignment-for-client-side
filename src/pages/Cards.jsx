@@ -1,8 +1,52 @@
-import React from 'react';
-import { Link } from 'react-router';
 
-const Cards = ({card}) => {
-    const { amount,category,date,description,email,name,situation,_id} = card
+import { Link } from 'react-router';
+import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
+
+const Cards = ({ card,  setData, }) => {
+   
+    const { amount, category, date, description, email, name, situation, _id } = card
+    console.log( _id );
+
+    const handleDelete = () => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:3000/collections/${_id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                        if (data.deletedCount) {
+                            const remaining = data.filter(user=> user._id !== _id)
+                            toast("deleted successfully")
+                            setData(remaining)
+                        }
+
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            }
+        });
+    }
+
+
     return (
         <div className="relative group w-full max-w-sm mx-auto">
             {/* Glowing Border + Hover Effect */}
@@ -11,15 +55,15 @@ const Cards = ({card}) => {
 
             <div className="relative card bg-base-100 shadow-2xl border border-base-300 rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-cyan-500/50">
                 {/* Badge */}
-              
-                    <div className="absolute top-4 right-4  z-10">
-                        <div className="badge badge-lg py-5 badge-primary font-bold animate-pulse">{situation}</div>
-                    </div>
+
+                <div className="absolute top-4 right-4  z-10">
+                    <div className="badge badge-lg py-5 badge-primary font-bold animate-pulse">{situation}</div>
+                </div>
 
                 <figure className="p-6 bg-gradient-to-br from-cyan-900/20 to-purple-900/20">
                     <div className="avatar">
-                        <div className="w-24 ">
-                            <div className="badge badge-lg badge-primary font-bold animate-pulse">{category}</div>
+                        <div className="w-full ">
+                            <div className="badge badge-lg text-center badge-primary font-bold animate-pulse">{category}</div>
                         </div>
                     </div>
                 </figure>
@@ -33,11 +77,24 @@ const Cards = ({card}) => {
                     <h4 className="text-base-content/70 line-clamp-1 mt-2">{email}</h4>
                     <h3 className="text-base-content/70 line-clamp-1 mt-2">{name}</h3>
 
-                   
+                    {/* Action Buttons */}
+                    <div className="flex justify-between sm:flex-row gap-4 mt-10">
+                        <Link to={`/update-transaction/${_id}`}
+                            className="w-full py-3.5 mt-6 rounded-xl btn-wide text-center bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow-lg hover:shadow-xl transform 
+                                    hover:scale-[1.02] transition-all duration-200"
+                        >
+                            Update
+                        </Link>
+                        <button onClick={handleDelete}
+                            className="w-full py-3.5 mt-6 cursor-pointer rounded-xl btn-wide text-center bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200"
+                        >
+                            Delete
+                        </button>
+                    </div>
 
                     <div className="card-actions justify-center mt-8">
                         <Link to={`/transaction-detail-page/${_id}`} className="btn btn-wide btn-gradient btn-lg shadow-lg hover:shadow-cyan-500/50">
-                            Get Started
+                            View Details Button
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" />
                             </svg>

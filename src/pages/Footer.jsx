@@ -1,5 +1,5 @@
 
-import { format } from 'date-fns';
+
 import { ImFacebook } from 'react-icons/im';
 import { IoLogoYoutube } from 'react-icons/io5';
 import { RiTwitterXFill } from 'react-icons/ri';
@@ -90,7 +90,7 @@ const Footer = () => {
             </p>
           </aside>
           <div>
-            {format(new Date(), 'dd MMMM yyyy, EEEE • hh:mm a',)}
+            <h5 className='flex items-center'>created-website : 08 November 2025</h5>
           </div>
           <div>
             <NavLink to="/" className="flex items-center gap-2 text-2xl font-bold bg-gradient-to-r from-orange-500 to-pink-600 bg-clip-text text-transparent">
@@ -105,10 +105,10 @@ const Footer = () => {
                 <RiTwitterXFill size={24} />
               </svg>
             </a>
-            <a href="#" aria-label="YouTube" className="hover:text-orange-500 transition">
+            <a href="https://www.youtube.com/@alexnillchowdhury" aria-label="YouTube" className="hover:text-orange-500 transition">
               <IoLogoYoutube size={24} />
             </a>
-            <a href="#" aria-label="Facebook" className="hover:text-orange-500 transition">
+            <a href="https://www.facebook.com/profile.php?id=61581237916296" target='_blank' aria-label="Facebook" className="hover:text-orange-500 transition">
               <ImFacebook size={24} />
             </a>
           </nav>
@@ -116,6 +116,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center text-gray-500 text-sm mt-8">
+          <p className='text-xl '>Website Developed-By : <a href='https://www.facebook.com/profile.php?id=61581237916296' target='_blank' className='text-red-300'>Alex Nill Chowdhury</a></p>
           © 2025 FinEase. All rights reserved.
         </div>
       </div>

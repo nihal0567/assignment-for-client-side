@@ -6,9 +6,6 @@ import StaticSections from "../components/StaticSections";
 
 const Home = () => {
 
-    
-
-
     return (
         <div>
         <div className="relative min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 overflow-hidden">

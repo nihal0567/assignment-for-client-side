@@ -1,12 +1,14 @@
 
 import { Link, useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 
 const TransactionDetailPage = () => {
     const data = useLoaderData()
     const transaction = data.result;
 
     const { amount, category, date, description, email, name, situation, _id } = transaction
-    console.log(transaction);
+    // console.log(transaction);
+
 
 
     return (
@@ -21,7 +23,6 @@ const TransactionDetailPage = () => {
 
                     <div className="relative card bg-base-100/90 backdrop-blur-2xl shadow-2xl border border-white/20 rounded-3xl overflow-hidden">
                         <div className="card-body p-8">
-
                             {/* Header */}
                             <div className="flex justify-between items-start mb-8">
                                 <div>
@@ -81,39 +82,12 @@ const TransactionDetailPage = () => {
                                 </div>
                             </div>
 
-                            {/* Action Buttons */}
-                            <div className="flex justify-between sm:flex-row gap-4 mt-10">
-                                <Link to={`/update-transaction/${_id}`}
-                                    className="w-full py-3.5 mt-6 rounded-xl btn-wide text-center bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow-lg hover:shadow-xl transform 
-                                    hover:scale-[1.02] transition-all duration-200"
-                                >
-                                    Update
-                                </Link>
-                                <Link 
-                                    className="w-full py-3.5 mt-6 rounded-xl btn-wide text-center bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200"
-                                >
-                                    Delete
-                                </Link>
-                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Custom Styles */}
-                <style jsx>{`
-          .perspective-1000 { perspective: 1000px; }
-          .transform-gpu { transform: translateZ(0); }
-          .hover\\:rotate-y-6:hover { transform: rotateY(6deg) rotateX(-6deg); }
-          .hover\\:-rotate-x-6:hover { transform: rotateY(6deg) rotateX(-6deg); }
-          .btn-gradient {
-            background: linear-gradient(45deg, #06b6d4, #ec4899);
-            border: none;
-          }
-          .btn-gradient:hover {
-            background: linear-gradient(45deg, #0891b2, #db2777);
-            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
-          }
-        `}</style>
+
             </div>
         </div>
     );

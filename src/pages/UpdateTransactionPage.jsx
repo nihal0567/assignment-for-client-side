@@ -1,12 +1,13 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Context/AuthContext';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate, useParams } from 'react-router';
 import { toast } from 'react-toastify';
 
 const UpdateTransactionPage = () => {
+  const navigate = useNavigate()
   const dataCollection = useLoaderData()
   const data = dataCollection.result
- 
+  const {id} = useParams()
   const { user } = use(AuthContext)
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
@@ -45,7 +46,7 @@ const UpdateTransactionPage = () => {
       .then(data => {
         console.log(data);
         toast('Update Successfully')
-        e.target.reset()
+        navigate(`/transaction-detail-page/${id}`)
       })
       .catch(err => {
         console.log(err);

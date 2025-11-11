@@ -5,7 +5,6 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AddTransactions from "../pages/AddTransactions";
-import MyTransactions from "../pages/MyTransactions";
 import ReportPage from "../pages/ReportPage";
 import Profile from "../pages/Profile";
 import PrivateRoute from "../Context/PrivateRoute";
@@ -28,7 +27,7 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><AddTransactions /></PrivateRoute>
             },
             {
-                path: '/all-transaction',
+                path: '/my-transaction',
                 element: <PrivateRoute><AllTransactions /></PrivateRoute>,
                 loader: ()=> fetch('http://localhost:3000/collections'),
                 hydrateFallbackElement: <Loading />
