@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import { toast } from 'react-toastify';
 
 const AddTransactions = () => {
+    const {user} = use(AuthContext)
+    const [email, setEmail] = useState("")
+    const [name, setName] = useState("")
+    
+    
+    useEffect(()=>{
+      if (user) {
+        setEmail(user.email || "")
+        setName(user.displayName || "")
+      }
+    }, [user])
 
+    
     const addTransaction=(e)=>{
         e.preventDefault()
         
@@ -150,7 +162,7 @@ const AddTransactions = () => {
                     <input
                       name='email'
                       type="email"
-                      defaultValue="alexnillc@gmail.com"
+                      value={email}
                       readOnly
                       className="input input-bordered w-full rounded-2xl bg-gray-100 cursor-not-allowed text-gray-600"
                     />
@@ -162,7 +174,7 @@ const AddTransactions = () => {
                     <input
                       name='name'
                       type="text"
-                      defaultValue="Alex Nill Chowdhury"
+                      value={name}
                       readOnly
                       className="input input-bordered w-full rounded-2xl bg-gray-100 cursor-not-allowed text-gray-600"
                     />
