@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Cards = ({card}) => {
-    const { amount,category,date,description,email,name,type,} = card
+    const { amount,category,date,description,email,name,type,_id} = card
     return (
         <div className="relative group w-full max-w-sm mx-auto">
             {/* Glowing Border + Hover Effect */}
@@ -34,12 +35,12 @@ const Cards = ({card}) => {
                    
 
                     <div className="card-actions justify-center mt-8">
-                        <button className="btn btn-wide btn-gradient btn-lg shadow-lg hover:shadow-cyan-500/50">
+                        <Link to={`/transaction-detail-page/${_id}`} className="btn btn-wide btn-gradient btn-lg shadow-lg hover:shadow-cyan-500/50">
                             Get Started
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" />
                             </svg>
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

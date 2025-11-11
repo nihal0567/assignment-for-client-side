@@ -11,6 +11,7 @@ import Profile from "../pages/Profile";
 import PrivateRoute from "../Context/PrivateRoute";
 import Loading from "../components/Loading";
 import AllTransactions from "../pages/AllTransactions";
+import TransactionDetailPage from "../pages/TransactionDetailPage";
 
 export const router = createBrowserRouter([
     {
@@ -33,6 +34,12 @@ export const router = createBrowserRouter([
                 path: '/all-transaction',
                 element: <AllTransactions />,
                 loader: ()=> fetch('http://localhost:3000/collections'),
+                hydrateFallbackElement: <Loading />
+            },
+            {
+                path: '/transaction-detail-page/:id',
+                element: <PrivateRoute><TransactionDetailPage /></PrivateRoute>,
+                loader: ({params})=> fetch(`http://localhost:3000/collections/${params.id}`),
                 hydrateFallbackElement: <Loading />
             },
             {
