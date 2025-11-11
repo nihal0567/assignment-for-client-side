@@ -85,7 +85,7 @@ const UpdateTransactionPage = () => {
                   <label className="flex items-center justify-center p-6 bg-green-50 border-2 border-green-200 
                     rounded-2xl cursor-pointer hover:bg-green-100 transition-all has-[:checked]:bg-green-500
                      has-[:checked]:border-green-600 has-[:checked]:text-white">
-                    <input type="radio" name="situation" defaultChecked={data.situation=== "Income"} className="hidden" />
+                    <input type="radio" name="situation" defaultChecked={data.situation === "Income"} className="hidden" />
                     <div className="text-center">
                       <div className="text-4xl mb-2">Down Arrow</div>
                       <span className="block font-medium text-lg">Income</span>
@@ -93,7 +93,7 @@ const UpdateTransactionPage = () => {
                   </label>
 
                   <label className="flex items-center justify-center p-6 bg-red-50 border-2 border-red-200 rounded-2xl cursor-pointer hover:bg-red-100 transition-all has-[:checked]:bg-red-500 has-[:checked]:border-red-600 has-[:checked]:text-white">
-                    <input type="radio" name="situation" defaultChecked={data.situation=== "Expense"} className="hidden" />
+                    <input type="radio" name="situation" defaultChecked={data.situation === "Expense"} className="hidden" />
                     <div className="text-center">
                       <div className="text-4xl mb-2">Up Arrow</div>
                       <span className="block font-medium text-lg">Expense</span>
