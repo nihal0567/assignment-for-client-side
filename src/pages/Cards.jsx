@@ -53,23 +53,23 @@ const Cards = ({ card, data, setData, }) => {
     }
 
     return (
-        <div className="relative group w-full max-w-sm mx-auto">
-            {/* Glowing Border + Hover Effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl
-             blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
+        <div className="relative w-full max-w-sm mx-auto">
+           
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
 
-            <div className="relative card bg-base-100 shadow-2xl border border-base-300 rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-cyan-500/50">
-                {/* Badge */}
+           
+            <div className="relative card bg-base-100 shadow-2xl border border-base-300 rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-cyan-500/50 h-full flex flex-col">
 
-                <div className="absolute top-4 right-4  z-10">
-                    <div className="badge badge-lg py-5 badge-primary font-bold animate-pulse">{situation}</div>
+              
+                <div className="absolute top-3 right-3 z-20">
+                    <div className="badge badge-md badge-primary font-bold animate-pulse px-3 py-4 text-xs">
+                        {situation}
+                    </div>
                 </div>
 
-                <figure className="p-6 bg-gradient-to-br from-cyan-900/20 to-purple-900/20">
-                    <div className="avatar">
-                        <div className="w-full ">
-                            <div className="badge badge-lg text-center badge-primary font-bold animate-pulse">{category}</div>
-                        </div>
+                <figure className="p-5 bg-gradient-to-br from-cyan-900/10 to-purple-900/10 flex justify-center items-center" style={{ minHeight: '68px' }}>
+                    <div className="badge badge-lg badge-primary font-bold animate-pulse">
+                        {category}
                     </div>
                 </figure>
 
@@ -78,11 +78,11 @@ const Cards = ({ card, data, setData, }) => {
                         {amount}
                     </h2>
                     <p className="text-base-content/70 line-clamp-1 mt-2">{description}</p>
-                    <p className="text-base-content/70 line-clamp-1 mt-2">{date}</p>
-                    <h4 className="text-base-content/70 line-clamp-1 mt-2">{email}</h4>
-                    <h3 className="text-base-content/70 line-clamp-1 mt-2">{name}</h3>
+                    <p className="text-base-content/70  ">{date}</p>
+                    <h4 className="text-base-content/70 ">{email}</h4>
+                    <h3 className="text-base-content/70 ">{name}</h3>
 
-                    {/* Action Buttons */}
+               
                     <div className="flex justify-between sm:flex-row gap-4 mt-10">
                         <Link to={`/update-transaction/${_id}`}
                             className="w-full py-3.5 mt-6 rounded-xl btn-wide text-center bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow-lg hover:shadow-xl transform 
@@ -108,7 +108,7 @@ const Cards = ({ card, data, setData, }) => {
                 </div>
             </div>
 
-            {/* Custom Gradient Button Style */}
+           
             <style jsx>{`
         .btn-gradient {
           background: linear-gradient(45deg, #06b6d4, #ec4899);

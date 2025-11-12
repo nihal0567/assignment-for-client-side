@@ -30,7 +30,16 @@ const UpdateTransactionPage = () => {
       category: e.target.category.value,
       amount: e.target.amount.value,
       description: e.target.description.value,
-      date: new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }),
+      date: new Date().toLocaleString('bn-BD', {
+      timeZone: 'Asia/Dhaka',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      weekday: 'long',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true, 
+    }),
       email: e.target.email.value,
       name: e.target.name.value
     }

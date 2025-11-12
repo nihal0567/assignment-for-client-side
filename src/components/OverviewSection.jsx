@@ -6,33 +6,33 @@ const OverviewSection = ({ totalBalance, totalIncome, totalExpenses }) => {
       {/* Total Balance */}
       <div className="card bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-xl hover:shadow-2xl transition-shadow">
         <div className="card-body text-center">
-          <h2 className="text-lg font-medium opacity-90">মোট ব্যালেন্স</h2>
+          <h2 className="text-lg font-medium opacity-90">Total Balance</h2>
           <p className="text-3xl font-bold mt-2">
             ৳ {totalBalance?.toLocaleString('bn-BD') || '0'}
           </p>
-          <p className="text-sm opacity-80 mt-1">এখন পর্যন্ত তোমার কাছে আছে</p>
+          <p className="text-sm opacity-80 mt-1">You have right now</p>
         </div>
       </div>
 
       {/* Total Income */}
       <div className="card bg-gradient-to-br from-green-500 to-green-600 text-white shadow-xl hover:shadow-2xl transition-shadow">
         <div className="card-body text-center">
-          <h2 className="text-lg font-medium opacity-90">মোট আয়</h2>
+          <h2 className="text-lg font-medium opacity-90">Total Income</h2>
           <p className="text-3xl font-bold mt-2">
             ৳ {totalIncome?.toLocaleString('bn-BD') || '0'}
           </p>
-          <p className="text-sm opacity-80 mt-1">এই মাসে আয় হয়েছে</p>
+          <p className="text-sm opacity-80 mt-1">Earned this month</p>
         </div>
       </div>
 
       {/* Total Expenses */}
       <div className="card bg-gradient-to-br from-red-500 to-red-600 text-white shadow-xl hover:shadow-2xl transition-shadow">
         <div className="card-body text-center">
-          <h2 className="text-lg font-medium opacity-90">মোট খরচ</h2>
+          <h2 className="text-lg font-medium opacity-90">Total Expenses</h2>
           <p className="text-3xl font-bold mt-2">
             ৳ {totalExpenses?.toLocaleString('bn-BD') || '0'}
           </p>
-          <p className="text-sm opacity-80 mt-1">এই মাসে খরচ হয়েছে</p>
+          <p className="text-sm opacity-80 mt-1">Expenses this month</p>
         </div>
       </div>
     </div>
