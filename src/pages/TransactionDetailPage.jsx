@@ -1,14 +1,18 @@
 
+
 import { Link, useLoaderData } from "react-router";
 
 
 const TransactionDetailPage = () => {
     const data = useLoaderData()
+    
     const transaction = data.result;
+
 
     const { amount, category, date, description, email, name, situation } = transaction
     // console.log(transaction);
 
+   
 
 
     return (

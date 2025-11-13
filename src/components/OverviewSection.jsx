@@ -12,7 +12,7 @@ const OverviewSection = () => {
   console.log(data)
  
   useEffect(() => {
-    fetch("http://localhost:3000/collections-amount")
+    fetch("https://serverside-jet.vercel.app/collections-amount")
       .then((res) => res.json())
       .then((result) => {
         setData(result);

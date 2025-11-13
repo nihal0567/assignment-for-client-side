@@ -13,23 +13,24 @@ const Register = () => {
     const [show, setShow] = useState(false);
     const provider= new GoogleAuthProvider()
     const navigate = useNavigate()
-    const { createUser, setUser } = use(AuthContext)
+    const { createUser, setUser, updateUser } = use(AuthContext)
     const registerAccount = (e) => {
         e.preventDefault()
         const photo = e.target.photo.value;
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log("connect", name, photo, email, password);
+       
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if (!passwordRegex.test(password)) {
             toast.error("Password must have uppercase, lowercase & min 6 characters");
             return
         }
-        createUser(email, password)
+        createUser(email, password, name, photo)
             .then(result => {
                 const user = result.user
-                setUser(user)
+                setUser({...user, photoURL: photo, displayName: name})
+                updateUser({photoURL: photo, displayName: name})
                 navigate("/")
                 toast("Successful Registration and Login Website")
             }).catch(err => {
