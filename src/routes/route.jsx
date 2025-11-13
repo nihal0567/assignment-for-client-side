@@ -29,19 +29,19 @@ export const router = createBrowserRouter([
             {
                 path: '/my-transaction',
                 element: <PrivateRoute><AllTransactions /></PrivateRoute>,
-                loader: ()=> fetch('http://localhost:3000/collections'),
+                loader: ()=> fetch('https://serverside-jet.vercel.app/collections'),
                 hydrateFallbackElement: <Loading />
             },
             {
                 path: '/transaction-detail-page/:id',
                 element: <PrivateRoute><TransactionDetailPage /></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:3000/collections/${params.id}`),
+                loader: ({params})=> fetch(`https://serverside-jet.vercel.app/collections/${params.id}`),
                 hydrateFallbackElement: <Loading />
             },
             {
                 path: '/update-transaction/:id',
                 element: <PrivateRoute><UpdateTransactionPage /></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:3000/collections/${params.id}`),
+                loader: ({params})=> fetch(`https://serverside-jet.vercel.app/collections/${params.id}`),
                 hydrateFallbackElement: <Loading />
             },
             {

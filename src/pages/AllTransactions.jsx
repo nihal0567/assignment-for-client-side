@@ -3,13 +3,13 @@ import Cards from './Cards';
 
 const AllTransactions = () => {
   //  const data = useLoaderData()
-   const [data, setData] = useState([]); // 👈 Create state
+   const [data, setData] = useState([]); 
 
   useEffect(() => {
-    fetch("http://localhost:3000/collections")
+    fetch("https://serverside-jet.vercel.app/collections")
       .then((res) => res.json())
       .then((info) => {
-        setData(info); // 👈 Update state with fetched data
+        setData(info); 
       })
       .catch((err) => console.error(err));
   }, [data]);

@@ -15,7 +15,7 @@ const AddTransactions = () => {
       }
     }, [user])
 
-    const now = new Date()
+    
     
     const addTransaction=(e)=>{
         e.preventDefault()
@@ -25,12 +25,12 @@ const AddTransactions = () => {
          category : e.target.category.value,
          amount : e.target.amount.value ,
          description : e.target.description.value ,
-         date: new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Dhaka' })) ,
+         date: new Date(new Date().toLocaleString('en-US')) ,
          email : e.target.email.value ,
          name : e.target.name.value }
         console.log({formData});
 
-        fetch('http://localhost:3000/collections' ,{
+        fetch('https://serverside-jet.vercel.app/collections' ,{
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -81,7 +81,7 @@ const AddTransactions = () => {
                     <label className="flex items-center justify-center p-6 bg-green-50 border-2 border-green-200 
                     rounded-2xl cursor-pointer hover:bg-green-100 transition-all has-[:checked]:bg-green-500
                      has-[:checked]:border-green-600 has-[:checked]:text-white">
-                      <input type="radio" name="situation" value="Income" required className="hidden" />
+                      <input type="radio" name="situation" value="income" required className="hidden" />
                       <div className="text-center">
                         <div className="text-4xl mb-2">Down Arrow</div>
                         <span  className="block font-medium text-lg">Income</span>
@@ -89,7 +89,7 @@ const AddTransactions = () => {
                     </label>
 
                     <label className="flex items-center justify-center p-6 bg-red-50 border-2 border-red-200 rounded-2xl cursor-pointer hover:bg-red-100 transition-all has-[:checked]:bg-red-500 has-[:checked]:border-red-600 has-[:checked]:text-white">
-                      <input type="radio" name="situation" required value="Expense" className="hidden" />
+                      <input type="radio" name="situation" required value="expense" className="hidden" />
                       <div className="text-center">
                         <div className="text-4xl mb-2">Up Arrow</div>
                         <span className="block font-medium text-lg">Expense</span>

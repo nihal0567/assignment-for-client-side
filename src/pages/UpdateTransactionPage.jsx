@@ -7,6 +7,7 @@ const UpdateTransactionPage = () => {
   const navigate = useNavigate()
   const dataCollection = useLoaderData()
   const data = dataCollection.result
+  
   const {id} = useParams()
   const { user } = use(AuthContext)
   const [email, setEmail] = useState("")
@@ -30,22 +31,13 @@ const UpdateTransactionPage = () => {
       category: e.target.category.value,
       amount: e.target.amount.value,
       description: e.target.description.value,
-      date: new Date().toLocaleString('bn-BD', {
-      timeZone: 'Asia/Dhaka',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      weekday: 'long',
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true, 
-    }),
+      date: new Date(new Date().toLocaleString('en-US')),
       email: e.target.email.value,
       name: e.target.name.value
     }
     console.log({ formData });
 
-    fetch(`http://localhost:3000/collections/${data._id}`, {
+    fetch(`https://serverside-jet.vercel.app/collections/${data._id}`, {
       method: 'PUT',
       headers: {
         "Content-Type": "application/json"
@@ -169,9 +161,6 @@ const UpdateTransactionPage = () => {
                   className="textarea textarea-bordered w-full rounded-2xl resize-none focus:border-indigo-500"
                 />
               </div>
-
-             <div>{new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' })}</div>
-
 
               {/* User Info - Read Only */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t-2 border-gray-200">

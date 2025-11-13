@@ -2,13 +2,11 @@
 import { Link } from 'react-router';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
-import NoTransactions from './NoTransactions';
-import Loading from '../components/Loading';
 
-const Cards = ({ card, data, setData, }) => {
+const Cards = ({ card, setData, }) => {
    
-    const { amount, category, date, description, email, name, situation, _id } = card
-    console.log( _id );
+    const { amount, category,  description, email, name, situation, _id , created_at} = card
+    
 
     const handleDelete = () => {
         Swal.fire({
@@ -21,7 +19,7 @@ const Cards = ({ card, data, setData, }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/collections/${_id}`, {
+                fetch(`https://serverside-jet.vercel.app/collections/${_id}`, {
                     method: 'DELETE',
                     headers: {
                         "Content-Type": "application/json"
@@ -48,9 +46,7 @@ const Cards = ({ card, data, setData, }) => {
         });
     }
 
-    if (data === undefined || data === null) {
-        return <Loading />
-    }
+    
 
     return (
         <div className="relative w-full max-w-sm mx-auto">
@@ -78,7 +74,7 @@ const Cards = ({ card, data, setData, }) => {
                         {amount}
                     </h2>
                     <p className="text-base-content/70 line-clamp-1 mt-2">{description}</p>
-                    <p className="text-base-content/70  ">{date}</p>
+                    <p className="text-base-content/70  ">{new Date(created_at).toLocaleDateString()}</p>
                     <h4 className="text-base-content/70 ">{email}</h4>
                     <h3 className="text-base-content/70 ">{name}</h3>
 
