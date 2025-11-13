@@ -57,13 +57,13 @@ const Footer = () => {
           <div>
             <h6 className="footer-title text-orange-500 text-lg mb-4">Stay Updated</h6>
             <p className="text-gray-400 mb-4">Subscribe to get tips on managing finances smarter.</p>
-            <div className="flex flex-col sm:flex-row gap-2">
+            <div className="flex items-center flex-col sm:flex-row gap-2">
               <input
                 type="email"
                 placeholder="Your email"
                 className="input input-bordered w-full bg-white/10 border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-orange-500"
               />
-              <button className="btn bg-orange-500 hover:bg-orange-600 text-white border-none">
+              <button className="btn btn-sm  bg-gradient-to-r from-pink-500 to-red-500 text-white border-none hover:from-pink-600 hover:to-red-600 shadow-md">
                 Subscribe
               </button>
             </div>
