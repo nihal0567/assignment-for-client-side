@@ -30,7 +30,7 @@ const AddTransactions = () => {
          name : e.target.name.value }
         console.log({formData});
 
-        fetch('https://serverside-jet.vercel.app/collections' ,{
+        fetch('http://localhost:3000/collections' ,{
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -175,7 +175,7 @@ const AddTransactions = () => {
                       <span className="label-text text-gray-500 font-medium">Name</span>
                     </label>
                     <input
-                      name='name'
+                      
                       type="text"
                       value={name}
                       readOnly

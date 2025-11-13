@@ -19,7 +19,7 @@ const Cards = ({ card, setData, }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://serverside-jet.vercel.app/collections/${_id}`, {
+                fetch(`http://localhost:3000/collections/${_id}`, {
                     method: 'DELETE',
                     headers: {
                         "Content-Type": "application/json"

@@ -37,7 +37,7 @@ const UpdateTransactionPage = () => {
     }
     console.log({ formData });
 
-    fetch(`https://serverside-jet.vercel.app/collections/${data._id}`, {
+    fetch(`http://localhost:3000/collections/${data._id}`, {
       method: 'PUT',
       headers: {
         "Content-Type": "application/json"

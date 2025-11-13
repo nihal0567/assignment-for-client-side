@@ -6,7 +6,7 @@ const AllTransactions = () => {
    const [data, setData] = useState([]); 
 
   useEffect(() => {
-    fetch("https://serverside-jet.vercel.app/collections")
+    fetch("http://localhost:3000/collections")
       .then((res) => res.json())
       .then((info) => {
         setData(info); 
@@ -16,7 +16,7 @@ const AllTransactions = () => {
     return (
         <div className='grid md:grid-cols-3 grid-cols-1 gap-5 py-20'>
             {
-                data.map((card, ind) => <Cards card={card} setData={setData} data={data} key={ind}/>)
+                data.map((card, ind) => <Cards card={card} data={data} key={ind}/>)
             }
         </div>
     );

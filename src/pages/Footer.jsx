@@ -1,5 +1,6 @@
 
 
+import { BsInstagram } from 'react-icons/bs';
 import { ImFacebook } from 'react-icons/im';
 import { IoLogoYoutube } from 'react-icons/io5';
 import { RiTwitterXFill } from 'react-icons/ri';
@@ -105,11 +106,14 @@ const Footer = () => {
                 <RiTwitterXFill size={24} />
               </svg>
             </a>
-            <a href="https://www.youtube.com/@alexnillchowdhury" aria-label="YouTube" className="hover:text-orange-500 transition">
+            <a href="https://www.youtube.com/@alexnillchowdhury" aria-label="YouTube" target='_blank' className="hover:text-orange-500 transition">
               <IoLogoYoutube size={24} />
             </a>
             <a href="https://www.facebook.com/profile.php?id=61581237916296" target='_blank' aria-label="Facebook" className="hover:text-orange-500 transition">
               <ImFacebook size={24} />
+            </a>
+            <a href="https://www.instagram.com/alexnillchowdhury/" target='_blank' aria-label="Facebook" className="hover:text-orange-500 transition">
+              <BsInstagram size={24} />
             </a>
           </nav>
         </div>

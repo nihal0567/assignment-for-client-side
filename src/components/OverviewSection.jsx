@@ -9,15 +9,15 @@ const OverviewSection = () => {
     totalExpense: 0,
   })
   const [loading, setLoading] = useState(true);
-  
+  console.log(data)
  
   useEffect(() => {
-    fetch("https://serverside-jet.vercel.app/collections")
+    fetch("http://localhost:3000/collections-amount")
       .then((res) => res.json())
       .then((result) => {
         setData(result);
         setLoading(false);
-        console.log(result);
+        
       })
       
   }, []);
@@ -35,7 +35,9 @@ const OverviewSection = () => {
           <div className="card-body text-center">
             <h2 className="text-lg font-medium opacity-90">Total Balance</h2>
             <p className="text-3xl font-bold mt-2">
-              ৳ {data?.totalBalance?.toLocaleString('en-US') || 0}
+              ৳ {
+                data.totalBalance
+              }
             </p>
             <p className="text-sm opacity-80 mt-1">You have right now</p>
           </div>
@@ -46,7 +48,9 @@ const OverviewSection = () => {
           <div className="card-body text-center">
             <h2 className="text-lg font-medium opacity-90">Total Income</h2>
             <p className="text-3xl font-bold mt-2">
-              ৳ {data?.totalIncome?.toLocaleString('en-US') || 0}
+              ৳ {
+                data.totalIncome
+              }
             </p>
             <p className="text-sm opacity-80 mt-1">Earned this month</p>
           </div>
@@ -57,7 +61,9 @@ const OverviewSection = () => {
           <div className="card-body text-center">
             <h2 className="text-lg font-medium opacity-90">Total Expenses</h2>
             <p className="text-3xl font-bold mt-2">
-              ৳ {data?.totalExpense?.toLocaleString('en-US') || 0}
+             ৳ {
+              data.totalExpense
+             }
             </p>
             <p className="text-sm opacity-80 mt-1">Expenses this month</p>
           </div>
